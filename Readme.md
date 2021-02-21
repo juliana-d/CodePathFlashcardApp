@@ -5,10 +5,11 @@
 ## Lab 1
 
 ### App Description
-Single flashcard that, when tapped, "flips" to reveal the answer
+Single flashcard that flips between the question and answer when tapped
 
 ### App Walk-though
 file:///Users/julianadudziak/Desktop/CodePathMobileAppDevelopment/FlasheeCardsLab1.gif
+/Users/julianadudziak/Desktop/CodePathMobileAppDevelopment/FlasheeCardsLab1CardToggle.gif
 
 ## Required
 - [x] Create New Project in Xcode
