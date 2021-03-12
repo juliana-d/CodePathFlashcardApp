@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A12459C425F41A6000737DC5 /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12459C325F41A6000737DC5 /* CreationViewController.swift */; };
 		A1505A7325E1937600DB4634 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1505A7225E1937600DB4634 /* AppDelegate.swift */; };
 		A1505A7525E1937600DB4634 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1505A7425E1937600DB4634 /* SceneDelegate.swift */; };
 		A1505A7725E1937600DB4634 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1505A7625E1937600DB4634 /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A12459C325F41A6000737DC5 /* CreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationViewController.swift; sourceTree = "<group>"; };
 		A1505A6F25E1937600DB4634 /* CodePathFlashcardApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodePathFlashcardApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1505A7225E1937600DB4634 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1505A7425E1937600DB4634 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A12459B325F40F5F00737DC5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A1505A7625E1937600DB4634 /* ViewController.swift */,
+				A12459C325F41A6000737DC5 /* CreationViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A12459B425F40F7500737DC5 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				A1505A7B25E1937700DB4634 /* Assets.xcassets */,
+				A1505A7D25E1937700DB4634 /* LaunchScreen.storyboard */,
+				A1505A7225E1937600DB4634 /* AppDelegate.swift */,
+				A1505A7425E1937600DB4634 /* SceneDelegate.swift */,
+			);
+			path = Misc;
+			sourceTree = "<group>";
+		};
+		A12459B525F40F8800737DC5 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				A1505A7825E1937600DB4634 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
 		A1505A6625E1937600DB4634 = {
 			isa = PBXGroup;
 			children = (
@@ -99,12 +129,9 @@
 		A1505A7125E1937600DB4634 /* CodePathFlashcardApp */ = {
 			isa = PBXGroup;
 			children = (
-				A1505A7225E1937600DB4634 /* AppDelegate.swift */,
-				A1505A7425E1937600DB4634 /* SceneDelegate.swift */,
-				A1505A7625E1937600DB4634 /* ViewController.swift */,
-				A1505A7825E1937600DB4634 /* Main.storyboard */,
-				A1505A7B25E1937700DB4634 /* Assets.xcassets */,
-				A1505A7D25E1937700DB4634 /* LaunchScreen.storyboard */,
+				A12459B525F40F8800737DC5 /* Storyboards */,
+				A12459B425F40F7500737DC5 /* Misc */,
+				A12459B325F40F5F00737DC5 /* ViewControllers */,
 				A1505A8025E1937700DB4634 /* Info.plist */,
 			);
 			path = CodePathFlashcardApp;
@@ -261,6 +288,7 @@
 				A1505A7725E1937600DB4634 /* ViewController.swift in Sources */,
 				A1505A7325E1937600DB4634 /* AppDelegate.swift in Sources */,
 				A1505A7525E1937600DB4634 /* SceneDelegate.swift in Sources */,
+				A12459C425F41A6000737DC5 /* CreationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
