@@ -38,6 +38,17 @@
                                         <color key="shadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3j-dO-lm1">
+                                        <rect key="frame" x="18" y="12" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="30"/>
+                                        <state key="normal" title="×">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didTapOnDelete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z60-5u-XOX"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <gestureRecognizers/>
@@ -56,6 +67,28 @@
                                     <segue destination="02e-wS-7L1" kind="presentation" id="dbc-qo-yZy"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1qf-ra-J8R">
+                                <rect key="frame" x="312" y="794" width="56" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="56"/>
+                                <state key="normal" title="➡︎">
+                                    <color key="titleColor" red="0.59747117760000001" green="0.0021927228659999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapOnNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KOt-UY-JRp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LDy-m6-gh5">
+                                <rect key="frame" x="46" y="794" width="56" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="56"/>
+                                <state key="normal" title="⬅︎">
+                                    <color key="titleColor" red="0.59747117760000001" green="0.0021927228659999998" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTapOnPrevious:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a3h-Ui-Oeo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -63,6 +96,8 @@
                     <connections>
                         <outlet property="answerLabel" destination="46G-AU-NPa" id="uCP-P4-AKn"/>
                         <outlet property="card" destination="NW1-L5-7h3" id="WZE-jp-GQo"/>
+                        <outlet property="nextButton" destination="1qf-ra-J8R" id="2iO-QQ-iFE"/>
+                        <outlet property="previousButton" destination="LDy-m6-gh5" id="7N5-oX-O0j"/>
                         <outlet property="questionLabel" destination="nIy-hD-QnQ" id="1Mu-n3-TIS"/>
                     </connections>
                 </viewController>
