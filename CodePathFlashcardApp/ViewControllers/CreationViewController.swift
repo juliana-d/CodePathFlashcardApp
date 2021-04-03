@@ -15,6 +15,9 @@ class CreationViewController: UIViewController {
     @IBOutlet weak var answerTextField: UITextField!
     
     @IBAction func didTapOnCancel(_ sender: Any) {
+        if flashcardsController.flashcards.count == 0 {
+            flashcardsController.updateFlashcard(question: "Where was Edgar Allan Poe born?", answer: "Boston, MA")
+        }
         dismiss(animated: true)
     }
     override func viewDidLoad() {
@@ -27,8 +30,16 @@ class CreationViewController: UIViewController {
         let questionText = questionTextField.text
         let answerText = answerTextField.text
         
+        //check if empty
+        if questionText == nil || answerText == nil || questionText!.isEmpty || answerText!.isEmpty {
+            let alert = UIAlertController(title: "Missing Text", message: "You need to enter both a question and an answer", preferredStyle: .alert)
+            present(alert, animated: true)
+            let okAction = UIAlertAction(title: "Ok", style: .default)
+            alert.addAction(okAction)
+        } else {
         flashcardsController.updateFlashcard (question: questionText!, answer: answerText!)
         dismiss(animated: true)
+        }
         
     }
     

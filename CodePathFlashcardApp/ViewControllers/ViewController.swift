@@ -36,15 +36,35 @@ class ViewController: UIViewController {
         card.layer.shadowOpacity = 0.3
         
         readSavedFlashcards()
-        
+
+        // Do any additional setup after loading the view.
+    }
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
         if flashcards.count == 0 {
-            updateFlashcard(question: "Where was Edgar Allan Poe born?", answer: "Boston, MA")
-        } else{
+            performSegue(withIdentifier: "newFlashcard", sender: self)
+            //updateFlashcard(question: "Where was Edgar Allan Poe born?", answer: "Boston, MA")
+                    }
+        else{
             updateLabels()
             updateNextPrevButtons()
         }
-
-        // Do any additional setup after loading the view.
+    }
+        
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //start with flashcard invisible and smaller
+        card.alpha = 0.0
+        card.transform = CGAffineTransform.identity.scaledBy(x: 0.75, y: 0.75)
+        
+        //Animation
+        UIView.animate (withDuration: 1.2, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
+            self.card.alpha = 1.0
+            self.card.transform = CGAffineTransform.identity
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -54,20 +74,21 @@ class ViewController: UIViewController {
         creationController.flashcardsController = self
     }
     
+    
     func updateNextPrevButtons() {
         if currentIndex==flashcards.count - 1 {
             nextButton.isEnabled = false
-            nextButton.isHidden = true
+            //nextButton.isHidden = true
         } else {
                 nextButton.isEnabled = true
-                nextButton.isHidden = false
+                //nextButton.isHidden = false
             }
         if currentIndex==0 {
             previousButton.isEnabled = false
-            previousButton.isHidden = true
+            //previousButton.isHidden = true
         } else {
             previousButton.isEnabled = true
-            previousButton.isHidden = false
+            //previousButton.isHidden = false
         }
         }
     
@@ -127,28 +148,61 @@ class ViewController: UIViewController {
         }
     }
     
+    func flipFlashcard(){
+        UIView.transition(with: card, duration: 0.3, options: .transitionFlipFromRight) {
+            if self.questionLabel.isHidden == true {
+                self.questionLabel.isHidden = false
+            } else {
+                self.questionLabel.isHidden = true
+        }
+        }
+    }
     
+    func animateCardOut(x: Int){
+        UIView.animate(withDuration: 0.2, animations: {
+            self.card.transform = CGAffineTransform.identity.translatedBy(x: CGFloat(x), y: 0.0)
+        }, completion: { finished in
+            if x == Int(-300.0){
+                self.animateCardIn(x:Int(300.0))
+            }
+            if x == Int(300.0){
+                self.animateCardIn(x: Int(-300.0))
+            }
+            self.updateLabels()
+        }
+        )
+    }
     
+    func animateCardIn(x: Int){
+        card.transform = CGAffineTransform.identity.translatedBy(x: CGFloat(x), y: 0.0)
+        UIView.animate(withDuration: 0.2) {
+            self.card.transform = CGAffineTransform.identity
+        }
+    }
+
     @IBAction func didTapOnFlashcard(_ sender: Any) {
         
-        if questionLabel.isHidden == true {
-            questionLabel.isHidden = false
-        } else {
-            questionLabel.isHidden = true
-        }
+        flipFlashcard()
         
-        }
-      //  questionLabel.isHidden = true
+        //questionLabel.isHidden = true
+    }
         
     @IBAction func didTapOnPrevious(_ sender: Any) {
         currentIndex = currentIndex - 1
-        updateLabels()
+        animateCardOut(x: Int(300.0))
+        if questionLabel.isHidden == true {
+            questionLabel.isHidden = false
+        }
         updateNextPrevButtons()
+        
     }
     
     @IBAction func didTapOnNext(_ sender: Any) {
         currentIndex = currentIndex + 1
-        updateLabels()
+        animateCardOut(x: Int(-300.0))
+        if questionLabel.isHidden == true {
+            questionLabel.isHidden = false
+        }
         updateNextPrevButtons()
     }
     
